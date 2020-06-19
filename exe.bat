@@ -1,0 +1,1 @@
+java -jar C:\Users\lgdfj\OneDrive\Documentos\GitHub\projeto-integrado-b\dist\Aula060620.jar

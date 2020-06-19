@@ -17,14 +17,14 @@ public class TerraClownPlanet implements Terra{
     }    
     
     public void HistoriaInicio(){
-        slowPrint("Entrando em ClownPlanet");
-        System.out.println("------------------------------------");
-        slowPrint("Iniciando simulação em 3,2,1... Carregamento concluido!");
-        System.out.println("------------------------------------");
-        slowPrint("Vc já esta presente no ClownPlanet \n Dica do magistrado cestinha, cuidado ao baixar pacotes de emojis não verificados. Muitos contém paródias, hacks e vírus. ");
-        System.out.println("------------------------------------");
-        slowPrint("Vc está em uma floresta povoada por palhacinhos, parece divertido, o que deseja fazer?");
-        slowPrint("1)Explorar 2)Revirar meus itens");
+        System.out.println("Entrando em ClownPlanet");
+        slowPrint("------------------------------------");
+        System.out.println("Iniciando simulação em 3,2,1... Carregamento concluido!");
+        slowPrint("------------------------------------");
+        System.out.println("Vc já esta presente no ClownPlanet \n Dica do magistrado cestinha, cuidado ao baixar pacotes de emojis não verificados. Muitos contém paródias, hacks e vírus. ");
+        slowPrint("------------------------------------");
+        System.out.println("Vc está em uma floresta povoada por palhacinhos, parece divertido, o que deseja fazer?");
+        System.out.println("1)Explorar 2)Revirar meus itens");
         
         
         
@@ -189,6 +189,8 @@ public class TerraClownPlanet implements Terra{
                // se ele escolher nao quero ouvir uma historia, o personagem é atacado por palhacinhos. 
         */
     }
+
+    
     
     public static void slowPrint(String mensagem) {
         char[] chars = mensagem.toCharArray();

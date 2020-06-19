@@ -74,13 +74,13 @@ public class JogoV7 {
         System.out.println(g1);
         
         System.out.println("--------------------------------------");
-        jogador.bater(g1);
+        System.out.println("vez do goblin, globin ataca");
         g1.atacar(jogador);
-        
+        System.out.println("vocÊ perdeu: " + jogador.status());
         System.out.println(jogador.status());
         System.out.println(g1);
         System.out.println("---------------------------------------------");
-        jogador.bater(g1);
+        g1.levarDano(jogador.danoJogador);
         g1.atacar(jogador);
         System.out.println(jogador.status());
         System.out.println(g1);
