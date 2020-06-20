@@ -8,14 +8,12 @@ public class Personagem  {
     int vida;
     int nivel;
     int xp;
-    int danoJogador;
+    boolean npc;
     
     
     private void pri(){
         System.out.println("privado?");
     }
-  
-    private ArrayList<Personagem> listaItens = new ArrayList<>();
 
     public String getNome() {
         return nome;
@@ -28,6 +26,7 @@ public class Personagem  {
         vida = 100;
         nivel = 1;
         xp = 0;
+        npc = true;
     }
     
     public Personagem(String nome) {
@@ -35,8 +34,13 @@ public class Personagem  {
         vida = 100;
         nivel = 1;
         xp = 0;
+        npc = false;
     }
-    
+
+    public boolean isNpc() {
+        return npc;
+    }
+
     public String status() {
         String status = "";
         
@@ -54,11 +58,12 @@ public class Personagem  {
         System.out.println("Não possuo nenhum item");
         return itens;
     }
-   
 
-   
-    
-    
+    public int getDanoJogador() {
+        return vida;
+    }
 
-    
+    public void setDanoJogador(int danoJogador) {
+        this.vida -= danoJogador;
+    }
 }

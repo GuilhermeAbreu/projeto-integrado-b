@@ -36,7 +36,7 @@ public class TerraClownPlanet implements Terra{
         } 
         
     }
-    @Override
+
     public void Historia1() {
         System.out.println("Vc se aproxima e vê...");
         slowPrint("jogador: " + "Caramba!! Que diabos é isso?");
@@ -49,11 +49,7 @@ public class TerraClownPlanet implements Terra{
       // jogador escolhe a ferramenta pra usar 1) ANSIEDADE, 2) SOFRIMENTO 3)AMOR
       // jogador vence se ele escolher AMOR e ai ele morre e imprime a mensagem : é preciso haver morte pra ajudar a superar! A morte é um paraíso. Vc ganhou um item : Suco de maça
 
-     // escolher Entrevistar
-
-      
-      
-      
+     // escolher Entrevistar    
         
         String opcao = teclado.next();
         try {
@@ -64,7 +60,11 @@ public class TerraClownPlanet implements Terra{
         
         
     }
-    
+
+    public void Historia2() {
+
+    }
+
     public void ItensJogador() {
         //jogador.itens();
         System.out.println("Não tem nada na minha mochila! Continue Jogando! ");
@@ -106,11 +106,7 @@ public class TerraClownPlanet implements Terra{
     System.out.println("\n\n\n");
     
     }
-    public void teste(){
-    //comentario
-    //linha 1
-    }
-    
+       
     public void Entrevistar() {
         
         limpar();
@@ -262,6 +258,7 @@ public class TerraClownPlanet implements Terra{
             System.out.println("executa metodo 2");
         }
         else{
+            resposta = metodo1;
             System.out.println("Não foi nenhum método");
         }
         
@@ -309,8 +306,4 @@ public class TerraClownPlanet implements Terra{
         method.invoke(quests);
     */ 
 
-    @Override
-    public void Historia2() {
-        
-    }
 }
