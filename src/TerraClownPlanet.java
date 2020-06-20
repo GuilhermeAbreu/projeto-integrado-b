@@ -108,6 +108,7 @@ public class TerraClownPlanet implements Terra{
     }
     public void teste(){
     //comentario
+    //linha 1
     }
     
     public void Entrevistar() {
