@@ -1,4 +1,8 @@
-import java.io.Console;
+import Jogadores.Goblin;
+import Jogadores.Personagem;
+import Jogadores.Zumbi;
+import Menu.Menu;
+
 import java.util.Scanner;
 public class JogoV7 {
     public static void main(String[] args) throws Exception  {

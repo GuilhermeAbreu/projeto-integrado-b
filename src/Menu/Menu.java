@@ -1,3 +1,6 @@
+package Menu;
+
+import Jogadores.Personagem;
 
 import java.util.Scanner;
 
@@ -20,7 +23,7 @@ public class Menu {
         Scanner scanner = new Scanner(System.in);
         
         Quests quests = new Quests(jogador);
-        System.out.println("Escolha entre : 1)Terra 4-169    2)ClownPlanet  ou    3)AssCream ");
+        System.out.println("Escolha entre : 1)Planeta.Terra 4-169    2)ClownPlanet  ou    3)Planeta.PlanetaImpl.AssCream ");
         System.out.print("Opção: ");
         String opcao = new java.util.Scanner(System.in).next();
         java.lang.reflect.Method method;       

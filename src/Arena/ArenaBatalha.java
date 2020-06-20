@@ -1,8 +1,13 @@
-/*
+package Arena;/*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
+import Input.Input;
+import Jogadores.Personagem;
+import Menu.Menu;
+import Planeta.PlanetaImpl.TerraClownPlanet;
 
 import java.util.List;
 import java.util.Random;
@@ -13,13 +18,13 @@ import java.util.Random;
  */
 public class ArenaBatalha {
 
-    public ArenaBatalha(List<Personagem> personagem){
+    public ArenaBatalha(List<Personagem> personagem) throws Exception {
 
     if(personagem.size() <= 2) batalhar(personagem);
 
 }
 
-    public void batalhar(List<Personagem> personagem){
+    public void batalhar(List<Personagem> personagem) throws Exception {
 
         int personagemOrdem = 0;
 
@@ -57,7 +62,7 @@ public class ArenaBatalha {
 
         }
 
-        if(personagem.get(0).getDanoJogador() <= 0 ){
+        if(personagem.get(0).getDanoJogador() > 0 ){
             System.out.println(personagem.get(0).getNome() + "E o vencedor");
         }else{
             System.out.println(personagem.get(1).getNome() + "E o vencedor");
@@ -65,7 +70,7 @@ public class ArenaBatalha {
 
     }
 
-    public void optionsDoUsuario(int optin, Personagem personagem){
+    public void optionsDoUsuario(int optin, Personagem personagem) throws Exception {
         boolean isValido = true;
         while (isValido){
             if(optin == 1){
@@ -78,10 +83,12 @@ public class ArenaBatalha {
                 System.out.println("Ver lista");
                 isValido = false;
             }else if(optin == 3){
-                System.out.println("fugir");
+                System.out.println("Você fugiu da Batalha será enviado para o Iniciu do Jogo");
+                Menu menu = new Menu();
+                menu.EscolhasMenu();
                 isValido = false;
             }else if(optin == 4){
-                System.out.println("pular a vez");
+                System.out.println("Você pulou a vez.");
                 isValido = false;
             }else {
                 System.err.println("Opção invalido");
