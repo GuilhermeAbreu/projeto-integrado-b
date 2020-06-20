@@ -14,21 +14,16 @@ public class Escolhas {
         TerraClownPlanet terraClownPlanet = new TerraClownPlanet();
         java.lang.reflect.Method method;    
         do{
-            switch(opcao){
-            case "1":
+            if ("1".equals(opcao)) {
                 method = terraClownPlanet.getClass().getMethod(metodo1);
                 method.invoke(terraClownPlanet);
-                break;
-            case "2":
+            } else if ("2".equals(opcao)) {
                 method = terraClownPlanet.getClass().getMethod(metodo2);
                 method.invoke(terraClownPlanet);
-                break;
-            case "0":
-                break;
-            default:
+            } else if ("0".equals(opcao)) {
+            } else {
                 System.out.println("opção inválida");
-                break;
-                }
+            }
         }while (opcao != "0" );
         return 0;
         
