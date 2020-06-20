@@ -4,12 +4,12 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class TerraClownPlanet implements Terra{
+public class TerraClownPlanet implements Terra {
     Personagem jogador;
     String nome;
     Escolhas escolhas = new Escolhas();   
     Scanner teclado = new Scanner(System.in);
-    
+    Menu menu = new Menu();
     public TerraClownPlanet(Personagem p){
         jogador = p;
     }
@@ -43,6 +43,13 @@ public class TerraClownPlanet implements Terra{
         System.out.println("Vc vê diante de sua frente um híbrido cachorro com chifre de veado");
         System.out.println("1)Batalha 2)Entrevistar");
         
+        String opcao = teclado.next();
+        try {
+            EscolhasJogador(opcao,"Batalha","Entrevistar");
+        } catch (Exception ex) {
+            Logger.getLogger(TerraClownPlanet.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+
       //escolher Batalha metodo batalha entra
       // palhacinho tem 5 de ataque e ataca, 5 de life
       // jogador tem 10 de life e 5 de ataque 
@@ -51,18 +58,6 @@ public class TerraClownPlanet implements Terra{
 
      // escolher Entrevistar
 
-      
-      
-      
-        
-        String opcao = teclado.next();
-        try {
-            EscolhasJogador(opcao,"Batalha","Entrevistar");
-        } catch (Exception ex) {
-            Logger.getLogger(TerraClownPlanet.class.getName()).log(Level.SEVERE, null, ex);
-        } 
-        
-        
     }
     
     public void ItensJogador() {
@@ -81,25 +76,30 @@ public class TerraClownPlanet implements Terra{
         //System.out.println(personagem.getNome()+ ": "+ );
     }
 
-    public void Batalha(){
+    public void Batalha() throws Exception{
+        slowPrint("Escolha sua ferramenta para enfrentá-los");    
+        slowPrint("1) Ansiedade 2)Sofrimento 3)Amor");
+        if(teclado.nextInt() == 3){
+            slowPrint("Parabéns, você escolheu sabiante, você deve derrotar o inimigo com facilidade");
+            //diminuir dano inimigo
+        }
+        else{
+        slowPrint("Você precis de maior conhecimento, talvez você não consiga continuar");
+            //aumentar dano do inimigo
+        }
+
         System.out.println(" 2 criaturas estão cercando o local e uma delas está vindo em sua direção");
         System.out.println("Território é um pouco ìngreme, você está em um ponto mais alto ");
         System.out.println("Criatura está agora na sua frente, o que deseja fazer?" + "1)Atacar 2)Revirar meus itens");
+        /*
         String opcao = teclado.next();
         try {
             escolhas.EscolhasJogador(opcao,"Atacar","ItensJogador ");
         } catch (Exception ex) {
             Logger.getLogger(TerraClownPlanet.class.getName()).log(Level.SEVERE, null, ex);
         } 
-        
-        
-        InimigoPalhacinhos palhacinhos = new InimigoPalhacinhos();
-        
-        
-        System.out.println(jogador.status());
-        
-        System.out.println(jogador.status());
-        System.out.println(palhacinhos);
+        */
+   
         
     }
     public void limpar(){
@@ -111,7 +111,7 @@ public class TerraClownPlanet implements Terra{
     //linha 2
     }
     
-    public void Entrevistar() {
+    public void Entrevistar() throws Exception{
         
         limpar();
         System.out.println("Jogador: Boa noite, Sr...? " );
@@ -119,78 +119,51 @@ public class TerraClownPlanet implements Terra{
         System.out.println("Jogador: "+"Se importa se eu entrevistar vc pra um vídeo no meu espaçocast? ");
         slowPrint("Anne: Pode ser, estou animada! Sempre quis fazer um espaçocast! ");
         System.out.println("Jogador: "+" Seja bem vinda! 1)O que faz nessa floresta?  2)Que tipo de criatura vc é? ");
-        int opcao = teclado.nextInt();
+        int opcao = teclado.nextInt(); //
         EscolhaFalas(opcao
                 ,"Eu vivo aqui, aqui é minha casa, temos uma comunidade aqui perto cheio de seres inteligentes com historia pra contar. \n" + "Vc quer que eu te conte algumas histórias? \n" + "1)Sim 2)Não" 
-                ,"Anne: Sou um híbrido cachorro nobre e pacífico! \n" + "Todos aqui são assim?\n" + "A grande maioria, existem apenas outros seres como os palhacinhos, eles não são muito amigáveis, mas são apetitosos...Vc gostaria de caçar alguns comigo? \n ");
-        if(opcao == 1 ){
+                ,"Anne: Sou um híbrido cachorro nobre e pacífico! \n" + "Todos aqui são assim?\n" + "A grande maioria, existem apenas outros seres como os palhacinhos, eles não são muito amigáveis, mas são apetitosos...Vc gostaria de caçar alguns comigo? \n 1)Sim 2)Não");
+        if(opcao == 1 ){ //1)O que faz nessa floresta?
             opcao = teclado.nextInt();
             EscolhaFalas(opcao
-                        ,"Sim, porfavor, me conte \n" +" Tem uma historia de uma menininha que morre de medo de dormir no escuro, e ela fica chamando a mae dela. a mae vem e diz jesus esta aqui com vc. Não tenha medo. E a criança diz ''Preciso de alguém com pele.'' E então enquanto ela não tiver alguém com pele e sentir medo, ela morre! Inclusive, vc gostaria de enfrentar seu medo comigo? 1)Sim 2)Não "
+                        ,"Sim, porfavor, me conte \n" +" Tem uma historia de uma menininha que morre de medo de dormir no escuro, e ela fica chamando a mae dela. a mae vem e diz jesus esta aqui com vc. \n Não tenha medo. E a criança diz ''Preciso de alguém com pele.''\n  E então enquanto ela não tiver alguém com pele e sentir medo, ela morre! Inclusive, vc gostaria de enfrentar seu medo comigo? 1)Sim 2)Não "
                         ," Fica para uma próxima");
                         if(opcao == 1){
                             opcao = teclado.nextInt();
                             EscolhaFalas(opcao
-                                            ,"Eba, vamos nessa! "
+                                            ,"Isso que vc falou de reconhecer a morte, é uma parte inevitável. É libertador aceitar. "
                                             ,"Vamos continuar,Que tipo de criatura você é? \n " + "Annie: Sou um híbrido cachorro nobre e pacífico! \n" + "Todos aqui são assim?\n" + "A guande maioria, existem apenas outros seres como os palhacinhos, eles não são muito amigáveis, mas são apetitosos...Vc gostaria de caçar alguns comigo? \n " + "1) Sim 2) Não");                      
                                             if(opcao == 1){
                                             Batalha();
                                             }else if(opcao ==2){
+                                                System.out.println("O que nos anima e nos cura não vem de frases de para-choque. É preciso batalhar pra conseguir!");
                                                 System.out.println(" Acho que não temos escolha, eles estão VINDO EM NOSSA DIREÇÃOOO!!!");
+                                                
                                                 Batalha();
                                             }
                         }
                         else if(opcao ==2){
                             System.out.println("Acho que tem algo vindo em nossa direção, SÃO OS PALHACINHOSS!!!");
+                            Batalha();
                         }
         }
-        else if(opcao == 2){
-            opcao = 0;
+        else if(opcao == 2){ //2)Que tipo de criatura vc é?
+            opcao = teclado.nextInt();
             EscolhaFalas(opcao
                     ,"Sim, vamos nessa!!! \n"
-                    ,"Acho que não temos escolha, eles estão VINDO EM NOSSA DIREÇÃOOO!!!");
-            Batalha();
+                    ,"Que pena...");
+                    if(opcao == 1){
+                        Batalha();
+                        }else if(opcao ==2){
+                            System.out.println(" Não, muito obrigado! Isso é tao lindo, e eu odeio estragar este momento, mas vou ser sincero, tenho que ir ao banheiro ");
+                            slowPrint("------------------------------");
+                            System.out.println("Saindo do planeta e voltando a nave");
+                            slowPrint("------------------------------");
+                            slowPrint("------------------------------");
+                            slowPrint("------------------------------");
+                            menu.EscolhasMenu(); 
+                        }
         }
-            //String FONE = this.res.getString("fone")?null:"";  
-        
-        
-        
-        /*
-        EscolhaFalas(teclado.nextInt(),
-            "Eu vivo aqui, aqui é minha casa, temos uma comunidade aqui perto cheio de seres inteligentes com historia pra contar. \n" + "Você quer que eu te conte algumas histórias? \n" + "1)Sim 2)Não" + 
-                    EscolhaFalas(teclado.nextInt()
-                            ,"Sim, porfavor, me conte \n" +" Tem uma historia de uma menininha que morre de medo de dormir no escuro, e ela fica chamando a mae dela. a mae vem e diz jesus esta aqui com vc. Não tenha medo. E a criança diz ''Preciso de alguém com pele.'' E então enquanto ela não tiver alguém com pele e sentir medo, ela morre! Inclusive, vc gostaria de enfrentar seu medo comigo? "  + 
-                                    EscolhaFalas(teclado.nextInt()
-                                            ,"Eba, vamos nessa! "
-                                            ,"Vamos continuar,Que tipo de criatura você é? \n " + "Annie: Sou um híbrido cachorro nobre e pacífico! \n" + "Todos aqui são assim?\n" + "A guande maioria, existem apenas outros seres como os palhacinhos, eles não são muito amigáveis, mas são apetitosos...Vc gostaria de caçar alguns comigo? \n " + "1) Sim 2) Não" +
-                                                    EscolhaFalas(teclado.nextInt(),"sim","Não")
-                            ," Fica para uma próxima")  
-            ,"Annie: Sou um híbrido cachorro nobre e pacífico! \n" + "Todos aqui são assim?\n" + "A guande maioria, existem apenas outros seres como os palhacinhos, eles não são muito amigáveis, mas são apetitosos...Vc gostaria de caçar alguns comigo? \n " +
-                    EscolhaFalas(teclado.nextInt()
-                            ,"Sim, vamos nessa!!! \n" 
-                            ," Acho que não temos escolha, eles estão VINDO EM NOSSA DIREÇÃOOO!!!")); 
-               // entra metodo atacar palhacinho para os Sim. E para os Não, ainda nao estou pronto. Mas muito obrigado Anne  !  ** A entrevista acabou **
-               // se ele escolher nao quero ouvir uma historia, o personagem é atacado por palhacinhos. 
-        
-        Batalha();
-            */
-        
-        
-        /*
-         //EscolhaFalas(teclado.nextInt(),"pergunta1","pergunta2");
-        EscolhaFalas(teclado.nextInt(),
-            "Eu vivo aqui, aqui é minha casa, temos uma comunidade aqui perto cheio de seres inteligentes com historia pra contar. \n" + "Você quer que eu te conte algumas histórias? \n" + "1)Sim 2)Não" + 
-                    EscolhaFalas(teclado.nextInt()
-                            ,"Sim, porfavor, me conte \n" +" Tem uma historia de uma menininha que morre de medo de dormir no escuro, e ela fica chamando a mae dela. a mae vem e diz jesus esta aqui com vc. Não tenha medo. E a criança diz ''Preciso de alguém com pele.'' E então enquanto ela não tiver alguém com pele e sentir medo, ela morre! Inclusive, vc gostaria de enfrentar seu medo comigo? "  + 
-                                    EscolhaFalas(teclado.nextInt(),"Eba, vamos nessa! ","Vamos continuar,Que tipo de criatura você é? \n " + "Annie: Sou um híbrido cachorro nobre e pacífico! \n" + "Todos aqui são assim?\n" + "A guande maioria, existem apenas outros seres como os palhacinhos, eles não são muito amigáveis, mas são apetitosos...Vc gostaria de caçar alguns comigo? \n " + "1) Sim 2) Não"  )//aqui sim ou nao? 
-                            ," Fica para uma próxima")  
-            ,"Annie: Sou um híbrido cachorro nobre e pacífico! \n" + "Todos aqui são assim?\n" + "A guande maioria, existem apenas outros seres como os palhacinhos, eles não são muito amigáveis, mas são apetitosos...Vc gostaria de caçar alguns comigo? \n " +
-                    EscolhaFalas(teclado.nextInt()
-                            ,"Sim, vamos nessa!!! \n" 
-                            ," Acho que não temos escolha, eles estão VINDO EM NOSSA DIREÇÃOOO!!!")); 
-               // entra metodo atacar palhacinho para os Sim. E para os Não, ainda nao estou pronto. Mas muito obrigado Anne  !  ** A entrevista acabou **
-               // se ele escolher nao quero ouvir uma historia, o personagem é atacado por palhacinhos. 
-        */
     }
 
     
@@ -253,19 +226,16 @@ public class TerraClownPlanet implements Terra{
         String resposta;
         //System.out.println("Escolha entre 2)floresta   2)entrevista");
         //System.out.print("Opção: ");
-        if(opcao == "1"){
+        String um = "1";
+        if(opcao.equals(um)){
             resposta = metodo1;
             System.out.println("executa metodo 1");
         }
-        else if(opcao == "2"){
+        else{
             resposta = metodo2;
             System.out.println("executa metodo 2");
         }
-        else{
-            
-            System.out.println("Não foi nenhum método");
-            resposta = "2";
-        }
+
         
         java.lang.reflect.Method method;       
         method = terraClownPlanet.getClass().getMethod(resposta);
@@ -311,7 +281,7 @@ public class TerraClownPlanet implements Terra{
         method.invoke(quests);
     */ 
 
-    @Override
+    
     public void Historia2() {
         
     }

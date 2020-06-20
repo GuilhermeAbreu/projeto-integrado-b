@@ -9,7 +9,7 @@
  * @author lgdfj
  */
 public interface Terra {
-    public void Historia1();
-    public void Historia2();
+   public void Historia1();
+   public void Historia2();
     
 }

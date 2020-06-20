@@ -8,7 +8,7 @@ public class JogoV7 {
         
         Goblin g1 = new Goblin();
         Zumbi g2 = new Zumbi();
-        
+        Menu menu = new Menu();
 
         
         System.out.println("Digite o nome do seu personagem: ");
@@ -20,22 +20,12 @@ public class JogoV7 {
         System.out.println("Seja bem vindo: " + jogador.getNome());
         
         System.out.println("Você acaba de comprar um simulador, qual Planeta você deseja jogar primeiro? ");
-        
-        
-        Quests quests = new Quests(jogador);
-        System.out.println("Escolha entre : 1)Terra 4-169    2)ClownPlanet  ou    3)AssCream ");
-        System.out.print("Opção: ");
-        String opcao = new java.util.Scanner(System.in).next();
-        java.lang.reflect.Method method;       
-        method = quests.getClass().getMethod("quest" + opcao);
-        method.invoke(quests);
+        menu.EscolhasMenu();
         
         
         
-        
-        
-        
-        System.out.println(method.toString() + "method = ");  
+
+    
         
         
         /*

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Personagem  {
     //Atributos
-    String nome;
+    static String nome;
     int vida;
     int nivel;
     int xp;
@@ -17,7 +17,7 @@ public class Personagem  {
   
     private ArrayList<Personagem> listaItens = new ArrayList<>();
 
-    public String getNome() {
+    public static String getNome() {
         return nome;
     }
     

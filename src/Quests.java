@@ -22,9 +22,9 @@ public class Quests {
     public Quests(){
     }    
         
-    public void quest1() throws IOException, IndexOutOfBoundsException {
+    public void quest1() throws Exception {
         System.out.println("Vc escolheu a quest 01!");
-        terra4169.Historia1();
+        terra4169.HistoriaInicio();
     }
     public void quest2() throws IOException, IndexOutOfBoundsException {
         System.out.println("Vc escolheu a quest 02!");
