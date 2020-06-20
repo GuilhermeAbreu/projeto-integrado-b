@@ -1,5 +1,6 @@
 package Planeta.PlanetaImpl;
 
+import Input.Input;
 import Jogadores.Personagem;
 import Menu.Escolhas;
 import Menu.Menu;
@@ -13,7 +14,6 @@ public class TerraClownPlanet implements Terra {
     Personagem jogador;
     String nome;
     Escolhas escolhas = new Escolhas();
-    Scanner teclado = new Scanner(System.in);
     Menu menu = new Menu();
     public TerraClownPlanet(Personagem p){
         jogador = p;
@@ -30,12 +30,9 @@ public class TerraClownPlanet implements Terra {
         slowPrint("------------------------------------");
         System.out.println("Vc está em uma floresta povoada por palhacinhos, parece divertido, o que deseja fazer?");
         System.out.println("1)Explorar 2)Revirar meus itens");
-        
-        
-        
-        String opcao = teclado.next();
+
         try {
-            escolhas.EscolhasJogador(opcao,"Historia1","ItensJogador");
+            escolhas.EscolhasJogador(Input.deveRetorarUmInt(),"Historia1","ItensJogador");
         } catch (Exception ex) {
             Logger.getLogger(TerraClownPlanet.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -48,9 +45,8 @@ public class TerraClownPlanet implements Terra {
         System.out.println("Vc vê diante de sua frente um híbrido cachorro com chifre de veado");
         System.out.println("1)Batalha 2)Entrevistar");
         
-        String opcao = teclado.next();
         try {
-            EscolhasJogador(opcao,"Batalha","Entrevistar");
+            EscolhasJogador(Input.deveRetorarUmInt(),"Batalha","Entrevistar");
         } catch (Exception ex) {
             Logger.getLogger(TerraClownPlanet.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -69,10 +65,8 @@ public class TerraClownPlanet implements Terra {
         //jogador.itens();
         System.out.println("Não tem nada na minha mochila! Continue Jogando! ");
         System.out.println("1) Explorar 2)Revirar itens");
-        Scanner teclado = new Scanner(System.in);
-        String opcao = teclado.next();
         try {
-            escolhas.EscolhasJogador(opcao,"Historia1","ItensJogador");
+            escolhas.EscolhasJogador(Input.deveRetorarUmInt(),"Historia1","ItensJogador");
         } catch (Exception ex) {
             Logger.getLogger(TerraClownPlanet.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -84,7 +78,7 @@ public class TerraClownPlanet implements Terra {
     public void Batalha() throws Exception{
         slowPrint("Escolha sua ferramenta para enfrentá-los");    
         slowPrint("1) Ansiedade 2)Sofrimento 3)Amor");
-        if(teclado.nextInt() == 3){
+        if(Input.deveRetorarUmInt() == 3){
             slowPrint("Parabéns, você escolheu sabiante, você deve derrotar o inimigo com facilidade");
             //diminuir dano inimigo
         }
@@ -124,17 +118,17 @@ public class TerraClownPlanet implements Terra {
         System.out.println("Jogador: "+"Se importa se eu entrevistar vc pra um vídeo no meu espaçocast? ");
         slowPrint("Anne: Pode ser, estou animada! Sempre quis fazer um espaçocast! ");
         System.out.println("Jogador: "+" Seja bem vinda! 1)O que faz nessa floresta?  2)Que tipo de criatura vc é? ");
-        int opcao = teclado.nextInt(); //
+        int opcao = Input.deveRetorarUmInt(); //
         EscolhaFalas(opcao
                 ,"Eu vivo aqui, aqui é minha casa, temos uma comunidade aqui perto cheio de seres inteligentes com historia pra contar. \n" + "Vc quer que eu te conte algumas histórias? \n" + "1)Sim 2)Não" 
                 ,"Anne: Sou um híbrido cachorro nobre e pacífico! \n" + "Todos aqui são assim?\n" + "A grande maioria, existem apenas outros seres como os palhacinhos, eles não são muito amigáveis, mas são apetitosos...Vc gostaria de caçar alguns comigo? \n 1)Sim 2)Não");
         if(opcao == 1 ){ //1)O que faz nessa floresta?
-            opcao = teclado.nextInt();
+            opcao = Input.deveRetorarUmInt();
             EscolhaFalas(opcao
                         ,"Sim, porfavor, me conte \n" +" Tem uma historia de uma menininha que morre de medo de dormir no escuro, e ela fica chamando a mae dela. a mae vem e diz jesus esta aqui com vc. \n Não tenha medo. E a criança diz ''Preciso de alguém com pele.''\n  E então enquanto ela não tiver alguém com pele e sentir medo, ela morre! Inclusive, vc gostaria de enfrentar seu medo comigo? 1)Sim 2)Não "
                         ," Fica para uma próxima");
                         if(opcao == 1){
-                            opcao = teclado.nextInt();
+                            opcao = Input.deveRetorarUmInt();
                             EscolhaFalas(opcao
                                             ,"Isso que vc falou de reconhecer a morte, é uma parte inevitável. É libertador aceitar. "
                                             ,"Vamos continuar,Que tipo de criatura você é? \n " + "Annie: Sou um híbrido cachorro nobre e pacífico! \n" + "Todos aqui são assim?\n" + "A guande maioria, existem apenas outros seres como os palhacinhos, eles não são muito amigáveis, mas são apetitosos...Vc gostaria de caçar alguns comigo? \n " + "1) Sim 2) Não");                      
@@ -153,7 +147,7 @@ public class TerraClownPlanet implements Terra {
                         }
         }
         else if(opcao == 2){ //2)Que tipo de criatura vc é?
-            opcao = teclado.nextInt();
+            opcao = Input.deveRetorarUmInt();
             EscolhaFalas(opcao
                     ,"Sim, vamos nessa!!! \n"
                     ,"Que pena...");
@@ -180,7 +174,7 @@ public class TerraClownPlanet implements Terra {
         {
             System.out.print(chars[i]);
             try{
-            Thread.sleep(30);
+            Thread.sleep(60);
         }
             catch(InterruptedException e){
             e.printStackTrace();
@@ -219,20 +213,20 @@ public class TerraClownPlanet implements Terra {
                 System.out.println("opção inválida");
                 break;
                 }
+
         return 0;
         }
         
         
 
     
-    public int EscolhasJogador(String opcao,String metodo1,String metodo2) throws Exception 
+    public int EscolhasJogador(int opcao,String metodo1,String metodo2) throws Exception
     {
         TerraClownPlanet terraClownPlanet = new TerraClownPlanet();
         String resposta;
         //System.out.println("Escolha entre 2)floresta   2)entrevista");
         //System.out.print("Opção: ");
-        String um = "1";
-        if(opcao.equals(um)){
+        if(opcao ==  1){
             resposta = metodo1;
             System.out.println("executa metodo 1");
         }

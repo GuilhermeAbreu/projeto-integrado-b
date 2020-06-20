@@ -6,11 +6,10 @@ import java.util.Scanner;
 public class Personagem  {
     //Atributos
     static String nome;
+    public boolean npc;
     int vida;
     int nivel;
     int xp;
-    boolean npc;
-    
     
     private void pri(){
         System.out.println("privado?");

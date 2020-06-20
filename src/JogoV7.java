@@ -1,22 +1,18 @@
+import Input.Input;
 import Jogadores.Goblin;
 import Jogadores.Personagem;
 import Jogadores.Zumbi;
 import Menu.Menu;
 
-import java.util.Scanner;
 public class JogoV7 {
     public static void main(String[] args) throws Exception  {
-        
-        
-        Scanner scanner = new Scanner(System.in);
-        
+
         Goblin g1 = new Goblin();
         Zumbi g2 = new Zumbi();
         Menu menu = new Menu();
 
-        
         System.out.println("Digite o nome do seu personagem: ");
-        String nome = scanner.next();
+        String nome = Input.deveRetornarUmaString();
         Personagem jogador = new Personagem(nome);
         
         //Criando um personagem guerreiro:

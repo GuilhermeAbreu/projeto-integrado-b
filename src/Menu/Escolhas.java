@@ -11,22 +11,22 @@ import Planeta.PlanetaImpl.TerraClownPlanet;
  * @author lgdfj
  */
 public class Escolhas {
-    public int EscolhasJogador(String opcao,String metodo1,String metodo2) throws Exception 
+    public int EscolhasJogador(int opcao,String metodo1,String metodo2) throws Exception
     {
         TerraClownPlanet terraClownPlanet = new TerraClownPlanet();
         java.lang.reflect.Method method;    
         do{
-            if ("1".equals(opcao)) {
+            if (1==opcao) {
                 method = terraClownPlanet.getClass().getMethod(metodo1);
                 method.invoke(terraClownPlanet);
-            } else if ("2".equals(opcao)) {
+            } else if (2 == opcao) {
                 method = terraClownPlanet.getClass().getMethod(metodo2);
                 method.invoke(terraClownPlanet);
-            } else if ("0".equals(opcao)) {
+            } else if (0==opcao) {
             } else {
-                System.out.println("opção inválida");
+                System.err.println("opção inválida");
             }
-        }while (opcao != "0" );
+        }while (opcao != 0 );
         return 0;
         
         

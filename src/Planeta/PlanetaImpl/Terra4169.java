@@ -1,5 +1,9 @@
 package Planeta.PlanetaImpl;
 
+import Input.Input;
+import Jogadores.Personagem;
+import Menu.Escolhas;
+import Menu.Menu;
 import Planeta.Terra;
 
 import java.util.Scanner;
@@ -20,7 +24,7 @@ public class Terra4169 implements Terra {
     Personagem personagem;
     Personagem jogador;
     String nome;
-    Escolhas escolhas = new Escolhas();   
+    Escolhas escolhas = new Escolhas();
     Scanner teclado = new Scanner(System.in);
     Menu menu = new Menu();
     
@@ -43,8 +47,7 @@ public class Terra4169 implements Terra {
         System.out.println("Vc está no meio de uma cidade com uma grande construção,barulhos estranhos em sua volta, o que deseja fazer?");
         System.out.println("1) Explorar 2)Revirar meus itens");
         System.out.print("Opção: ");
-        Scanner scanner = new Scanner(System.in);
-        int opcao = scanner.nextInt();
+        int opcao = Input.deveRetorarUmInt();
         if(opcao == 1){
              System.out.println("Vc encontrou alguém na sua frente");
         slowPrint("------------------------------------");
@@ -61,12 +64,8 @@ public class Terra4169 implements Terra {
         else{
             ItensJogador();
         }
-    
-    
-    
-    
+
     }
-    @Override
     public void  Historia1() {
       
 
@@ -76,7 +75,7 @@ public class Terra4169 implements Terra {
      //combate a inimigos
         slowPrint("Escolha sua ferramenta para enfrentá-los");    
         slowPrint("1)Raiva 2)Respiração 3)Maconha");
-        if(teclado.nextInt() == 2){
+        if(2 == Input.deveRetorarUmInt()){
             slowPrint("Parabéns! Uma das minhas frases preferidas é que saúde tem a ver com aceitar, perceber e lidar com a realidade, nos termos da realidade! Vc ganhou um item : Antídoto! Continue Jogando");
             //diminuir dano inimigo
         }
@@ -88,12 +87,8 @@ public class Terra4169 implements Terra {
         System.out.println(" 2 criaturas estão cercando o local e uma delas está vindo em sua direção");
         System.out.println("Território é um pouco ìngreme, você está em um ponto mais alto ");
         System.out.println("Criatura está agora na sua frente, o que deseja fazer?" + "1)Atacar 2)Revirar meus itens");
-        
-        
-        
-    
+
     }
-    @Override
     public void Historia2() {
         
     }
@@ -122,7 +117,7 @@ public class Terra4169 implements Terra {
             }
         }else{ //2) O que ele faz aqui
         System.out.println("Estou combatendo os Zumbis para proteger a população! Vamos ter que iniciar o protocolo Alfa! Quer se juntar a mim? 1)Sim 2) Não ");
-            if(opcao == 1){ 
+            if(opcao == 1){
                 Batalha(); //Sim
             }
             else{
@@ -176,10 +171,8 @@ public class Terra4169 implements Terra {
         //jogador.itens();
         System.out.println("Não tem nada na minha mochila! Continue Jogando! ");
         System.out.println("1) Explorar 2)Revirar itens");
-        Scanner teclado = new Scanner(System.in);
-        String opcao = teclado.next();
         try {
-            escolhas.EscolhasJogador(opcao,"Historia1","ItensJogador");
+            escolhas.EscolhasJogador(Input.deveRetorarUmInt(),"Historia1","ItensJogador");
         } catch (Exception ex) {
             Logger.getLogger(TerraClownPlanet.class.getName()).log(Level.SEVERE, null, ex);
         }
