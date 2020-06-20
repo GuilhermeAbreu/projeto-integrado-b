@@ -8,6 +8,7 @@ public class Personagem  {
     int vida;
     int nivel;
     int xp;
+    int danoJogador;
     
     
     private void pri(){

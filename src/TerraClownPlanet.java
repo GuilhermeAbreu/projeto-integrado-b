@@ -106,7 +106,9 @@ public class TerraClownPlanet implements Terra{
     System.out.println("\n\n\n");
     
     }
-    
+    public void teste(){
+    //comentario
+    }
     
     public void Entrevistar() {
         
@@ -254,9 +256,12 @@ public class TerraClownPlanet implements Terra{
             resposta = metodo1;
             System.out.println("executa metodo 1");
         }
-        else{
+        else if(opcao == "2"){
             resposta = metodo2;
             System.out.println("executa metodo 2");
+        }
+        else{
+            System.out.println("Não foi nenhum método");
         }
         
         java.lang.reflect.Method method;       
